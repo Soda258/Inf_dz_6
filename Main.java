@@ -1,35 +1,23 @@
+import devices.PersonalComputer;
+import devices.Phone;
+
 public class Main {
     public static void main(String[] args) {
-        Car[] cars = {
-            new Car(1, "Toyota", "Mega Cruiser", 1996, "Black", 10560000.0, "Q147WE"),
-            new Car(2, "Toyota", "Land Cruiser Prado", 2021, "Black", 6500000.0, "R258TY"),
-            new Car(3, "Wolkswagen", "Polo X5", 2019, "Silver", 1500000.0, "U369IO"),
-            new Car(4, "Wolkswagen", "Touareg", 2008, "Red", 1340000.0, "Q147DE"),
-            new Car(5, "Ford", "F-150 XL", 2022, "Blue", 1340000.0, "D032BI"),
-            new Car(6, "BMW", "M3", 2020, "Black", 60000.0, "G233EX")
-        };
-        
-        
-    }
 
-    public static Car[] getCarByBrend(Car[] cars, String brend) {
-        int count = 0;
-        for (Car car : cars) {
-            if (car.getBrand().equalsIgnoreCase(brend)) {
-                count++;
-            }
+        PersonalComputer pc1 = new PersonalComputer(1, 45000);
+        PersonalComputer pc2 = new PersonalComputer(2, 120000, "192.168.1.10");
+        
+        Phone phone1 = new Phone(3, 25000);
+        Phone phone2 = new Phone(4, 65000, "192.168.1.20");
+
+        Device[] devices = {pc1, pc2, phone1, phone2};
+        
+        for (Device device : devices) {
+            System.out.println(device.sprint());
+            System.out.println("Type: " + device.getDeviceType());
+            System.out.println("Id: " + device.getDeviceId());
+            System.out.println("Price: " + device.getPrice());
+            System.out.println("Ip: " + (device.getIp() != null ? device.getIp() : "0"));
         }
-        
-        Car[] result = new Car[count];
-        int index = 0;
-        
-        for (Car car : cars) {
-            if (car.getBrand().equalsIgnoreCase(brend)) {
-                result[index] = car;
-                index++;
-            }
-        }
-        
-        return result;
     }
 }
