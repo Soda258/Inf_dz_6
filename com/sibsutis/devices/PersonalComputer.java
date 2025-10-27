@@ -14,4 +14,14 @@ public class PersonalComputer extends Device{
     public String getDeviceType() {
         return "Personal Computer";
     }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (!super.equals(o)){return false};
+        return true;
+    }
+
+    @Override
+    public int hashCode() {return super.hashCode();}
 }

@@ -23,5 +23,20 @@ public abstract class Device implements Printable{
     public int getPrice(){return price;}
     public String getIp(){return ip;}
 
+
+    @Override
+    public boolean equals(Object o){
+        if (this == o){return true};
+        if (o == null || getClass() != o.getClass()){return false};
+        Device deviceObj = (Device) o;
+        return id == deviceObj.id && price == deviceObj.price && java.util.Objects.equals(ip, deviceObj.ip);
+    }
+
+    @Override
+    public int hashCode(){
+        return java.util.Objects.hash(id, price, ip);
+    }
+
+    
     
 }

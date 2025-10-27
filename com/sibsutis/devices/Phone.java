@@ -14,4 +14,14 @@ public class Phone extends Device {
     public String getDeviceType() {
         return "Phone";
     }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (!super.equals(o)){return false};
+        return true;
+    }
+
+    @Override
+    public int hashCode() {return super.hashCode();}
 }
